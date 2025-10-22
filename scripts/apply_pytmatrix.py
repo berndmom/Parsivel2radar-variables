@@ -71,7 +71,7 @@ class radar_parameters(object):
         
         self.data_temp["Zh_dBZ"] = {"dims": ("index"), "data": 10 * np.log10(self.data["Zh"]/1)}
         if "Zdr" in list(self.data.keys()):
-            self.data_temp["Zdr_dB"] = {"dims": ("index"), "data": self.data[10 * np.log10(self.data["Zdr"])]}
+            self.data_temp["Zdr_dB"] = {"dims": ("index"), "data": 10 * np.log10(self.data["Zdr"])}
         
         self.data = xr.Dataset.from_dict(self.data_temp)
         print('Finished scatterer')
